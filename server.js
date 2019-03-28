@@ -12,7 +12,7 @@ var db = require("./models");
 
 //? module.exports = db;
 
-var PORT = 3001;
+var PORT = process.env.PORT || 3001;
 
 // Initialize Express
 var app = express();
