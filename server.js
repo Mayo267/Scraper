@@ -50,7 +50,7 @@ app.get("/", function (req, res) {
 });
 
 // A GET route for scraping the echoJS website
-function scrape(){
+
 
 app.get("/scrape", function (req, res) {
     // First, we grab the body of the html with axios
@@ -87,7 +87,7 @@ app.get("/scrape", function (req, res) {
         res.send("Scrape Complete");
     });
 });
-};
+
 // Route for getting all Articles from the db
 app.get("/articles", function (req, res) {
     // Grab every document in the Articles collection
