@@ -32,7 +32,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Hook mongojs configuration to the db variable
-// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/unit18Populater";
 
 mongoose.connect(MONGODB_URI);
@@ -50,6 +50,8 @@ app.get("/", function (req, res) {
 });
 
 // A GET route for scraping the echoJS website
+$("#scrape").on("click", function(){
+
 app.get("/scrape", function (req, res) {
     // First, we grab the body of the html with axios
     axios.get("http://www.echojs.com/").then(function (response) {
@@ -85,7 +87,7 @@ app.get("/scrape", function (req, res) {
         res.send("Scrape Complete");
     });
 });
-
+});
 // Route for getting all Articles from the db
 app.get("/articles", function (req, res) {
     // Grab every document in the Articles collection
